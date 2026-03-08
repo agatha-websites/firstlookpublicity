@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const yearSpan = document.getElementById("year");
   const themeToggle = document.querySelector(".theme-toggle");
   const root = document.documentElement;
+  const brandLink = document.querySelector(".brand");
 
   if (yearSpan) {
     yearSpan.textContent = String(new Date().getFullYear());
@@ -82,6 +83,26 @@ document.addEventListener("DOMContentLoaded", () => {
         navList.classList.remove("open");
       }
     });
+      // Close nav menu when clicking outside or scrolling
+      document.addEventListener("click", (event) => {
+        if (!navList.classList.contains("open")) return;
+        const target = event.target;
+        if (
+          target !== navList &&
+          target !== navToggle &&
+          !navList.contains(target) &&
+          !navToggle.contains(target)
+        ) {
+          navToggle.setAttribute("aria-expanded", "false");
+          navList.classList.remove("open");
+        }
+      });
+      window.addEventListener("scroll", () => {
+        if (navList.classList.contains("open")) {
+          navToggle.setAttribute("aria-expanded", "false");
+          navList.classList.remove("open");
+        }
+      });
   }
 
   // Smooth scrolling for same-page links and buttons with data-scroll-target
@@ -98,6 +119,17 @@ document.addEventListener("DOMContentLoaded", () => {
       behavior: "smooth",
     });
   }
+
+    // Smooth scroll for brand/home link
+    if (brandLink) {
+      brandLink.addEventListener("click", (event) => {
+        const href = brandLink.getAttribute("href");
+        if (href && href.startsWith("#")) {
+          event.preventDefault();
+          smoothScrollTo(href);
+        }
+      });
+    }
 
   document.addEventListener("click", (event) => {
     const target = event.target;

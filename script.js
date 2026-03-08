@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const navToggle = document.querySelector(".nav-toggle");
   const navList = document.querySelector(".nav-list");
+  const navToggleIcon = navToggle?.querySelector(".nav-toggle-icon");
   const yearSpan = document.getElementById("year");
   const themeToggle = document.querySelector(".theme-toggle");
   const root = document.documentElement;
@@ -74,6 +75,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const isOpen = navToggle.getAttribute("aria-expanded") === "true";
       navToggle.setAttribute("aria-expanded", String(!isOpen));
       navList.classList.toggle("open", !isOpen);
+      if (navToggleIcon) {
+        // Animate icon out
+        navToggleIcon.classList.add("is-animating");
+        setTimeout(() => {
+          navToggleIcon.textContent = !isOpen ? "close" : "menu";
+          navToggleIcon.classList.remove("is-animating");
+        }, 180);
+      }
     });
 
     navList.addEventListener("click", (event) => {
@@ -81,6 +90,13 @@ document.addEventListener("DOMContentLoaded", () => {
       if (target instanceof HTMLAnchorElement) {
         navToggle.setAttribute("aria-expanded", "false");
         navList.classList.remove("open");
+        if (navToggleIcon) {
+          navToggleIcon.classList.add("is-animating");
+          setTimeout(() => {
+            navToggleIcon.textContent = "menu";
+            navToggleIcon.classList.remove("is-animating");
+          }, 180);
+        }
       }
     });
       // Close nav menu when clicking outside or scrolling
@@ -95,12 +111,26 @@ document.addEventListener("DOMContentLoaded", () => {
         ) {
           navToggle.setAttribute("aria-expanded", "false");
           navList.classList.remove("open");
+          if (navToggleIcon) {
+            navToggleIcon.classList.add("is-animating");
+            setTimeout(() => {
+              navToggleIcon.textContent = "menu";
+              navToggleIcon.classList.remove("is-animating");
+            }, 180);
+          }
         }
       });
       window.addEventListener("scroll", () => {
         if (navList.classList.contains("open")) {
           navToggle.setAttribute("aria-expanded", "false");
           navList.classList.remove("open");
+          if (navToggleIcon) {
+            navToggleIcon.classList.add("is-animating");
+            setTimeout(() => {
+              navToggleIcon.textContent = "menu";
+              navToggleIcon.classList.remove("is-animating");
+            }, 180);
+          }
         }
       });
   }

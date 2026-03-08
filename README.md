@@ -2,8 +2,6 @@
 
 Static marketing site inspired by the First Look Publicity homepage, rebuilt with **vanilla HTML, CSS, and JavaScript** and refined with a more modern, responsive UI.
 
-This project is designed so you can easily swap in your own assets (especially images) and deploy as a simple static site.
-
 ## Structure
 
 - `index.html` – main single-page layout with sections:
@@ -25,6 +23,7 @@ This project is designed so you can easily swap in your own assets (especially i
   - Reveal-on-scroll animations
   - Year auto-update and demo contact form handling
 - `package.json` – minimal metadata and a simple `start` script.
+
 
 
 

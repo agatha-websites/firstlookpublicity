@@ -258,37 +258,33 @@ main {
 }
 
 .nav-toggle {
-  display: none;
   cursor: pointer;
   background: transparent;
   border: none;
   padding: 0.35rem;
   border-radius: 999px;
+  display: none;
 }
 
-.nav-toggle span {
-  display: block;
-  width: 20px;
-  height: 2px;
-  border-radius: 999px;
-  background: var(--text);
-  transition: transform 0.2s ease, opacity 0.2s ease;
+@media (max-width: 1000px) {
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
-.nav-toggle span + span {
-  margin-top: 5px;
+.nav-toggle-icon {
+  font-size: 2rem;
+  color: var(--text);
+  transition: opacity 0.22s, transform 0.22s, color 0.18s;
+  opacity: 1;
+  transform: scale(1);
 }
 
-.nav-toggle[aria-expanded="true"] span:first-child {
-  transform: translateY(3.5px) rotate(45deg);
-}
-
-.nav-toggle[aria-expanded="true"] span:last-child {
-  transform: translateY(-3.5px) rotate(-45deg);
-}
-
-.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+.nav-toggle-icon.is-animating {
   opacity: 0;
+  transform: scale(0.7);
 }
 
 /* Hero */

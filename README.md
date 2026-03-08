@@ -1,4 +1,4 @@
-# First Look Publicity – Sample Site
+# First Look Publicity
 
 Static marketing site inspired by the First Look Publicity homepage, rebuilt with **vanilla HTML, CSS, and JavaScript** and refined with a more modern, responsive UI.
 
@@ -51,5 +51,6 @@ Replace the `src` values in `index.html` with your own uploads or CDN URLs. The 
 
 - The contact form is **non-functional** and intentionally blocked from submitting to a backend. Replace it with your own form handler, form provider, or API endpoint when you're ready.
 - The content and layout are meant as a learning/demo replica and can be further adapted to match your brand.
+
 
 

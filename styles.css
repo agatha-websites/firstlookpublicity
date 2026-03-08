@@ -762,6 +762,14 @@ h3 {
   font-weight: 500;
 }
 
+#goal {
+  resize: both; /* default, but can set max limits */
+  max-width: 100%;   /* prevent exceeding form width */
+  max-height: 200px; /* prevent exceeding layout */
+  min-width: 100%;   /* optional: keep it full width */
+  min-height: 80px;  
+}
+
 /* Footer */
 
 .site-footer {

@@ -1001,44 +1001,6 @@ h3 {
     display: inline-flex;
   }
 
-  .nav-list {
-    position: absolute;
-    inset-inline: 1.5rem;
-    top: 3.6rem;
-    flex-direction: column;
-    align-items: stretch;
-    padding: 0.75rem 0.9rem;
-    border-radius: 1rem;
-    background: rgba(255, 255, 255, 0.98);
-    border: 1px solid var(--border-subtle);
-    box-shadow: 0 18px 40px rgba(148, 114, 80, 0.22);
-    transform-origin: top;
-    transform: scaleY(0.9);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.18s ease, transform 0.18s ease;
-  }
-
-  [data-theme="dark"] .nav-list {
-    background: rgba(8, 3, 9, 0.98);
-    border-color: rgba(248, 250, 252, 0.08);
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
-  }
-
-  .nav-list li {
-    padding: 0.25rem 0.15rem;
-  }
-
-  .nav-list li:last-child {
-    margin-top: 0.25rem;
-  }
-
-  .nav-list.open {
-    opacity: 1;
-    transform: scaleY(1);
-    pointer-events: auto;
-  }
-
   .hero {
     padding-block: 3.6rem 3rem;
   }

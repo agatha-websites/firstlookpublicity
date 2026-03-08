@@ -175,5 +175,28 @@ window.addEventListener("load", () => {
   }
 });
 
+// Initialize Flatpickr for timeline input
+flatpickr("#timeline", {
+  dateFormat: "m/d/Y", // MM/DD/YYYY
+  allowInput: true     // allow typing as well as using the picker
+});
+
+const budgetInput = document.getElementById("budget");
+
+budgetInput.addEventListener("input", (e) => {
+  // Remove everything except digits
+  let numericValue = e.target.value.replace(/[^\d]/g, "");
+
+  if (numericValue) {
+    // Add commas for thousands
+    numericValue = parseInt(numericValue, 10).toLocaleString("en-PH");
+
+    // Format with peso sign
+    e.target.value = "₱" + numericValue;
+  } else {
+    e.target.value = "₱";
+  }
+});
+
 });
 
